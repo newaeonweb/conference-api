@@ -1,7 +1,4 @@
-// BASE SETUP
-// =============================================================================
-
-// call the packages we need
+// Import the Modules
 var express    = require('express');
 var bodyParser = require('body-parser');
 var app        = express();
@@ -9,11 +6,15 @@ var app        = express();
 // configure app
 app.use(bodyParser());
 
-var port     = process.env.PORT || 8080; // set our port
+var port     = process.env.PORT || 8080; // where the application will run
 
+// Import Mongoose
 var mongoose   = require('mongoose');
-mongoose.connect('mongodb://feiochc:hate666!@kahana.mongohq.com:10073/node-api'); // connect to our database
-var Speaker     = require('./app/models/speaker');
+
+// connect to our database
+mongoose.connect('mongodb://feiochc:hate666!@kahana.mongohq.com:10073/node-api');
+
+var Speaker     = require('./server/models/speaker');
 
 // ROUTES FOR OUR API
 // =============================================================================
