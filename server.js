@@ -12,55 +12,58 @@ var port     = process.env.PORT || 8080; // where the application will run
 var mongoose   = require('mongoose');
 
 // connect to our database
+// mongoose.connect('mongodb://127.0.0.1:port/node-api');
 mongoose.connect('mongodb://feiochc:hate666!@kahana.mongohq.com:10073/node-api');
 
 var Speaker     = require('./server/models/speaker');
 
-// ROUTES FOR OUR API
-// =============================================================================
+// Defining the Routes for our API
 
-// create our router
+// Start the Router
 var router = express.Router();
 
-// middleware to use for all requests
+// A simple middleware to use for all Routes and Requests
 router.use(function(req, res, next) {
-	// do logging
-	console.log('Something is happening.');
+	// Give some message on the console
+	console.log('An action was performed by the server.');
+    // Is very important using the next() function, without this the Route stops here.
 	next();
 });
 
-// test route to make sure everything is working (accessed at GET http://localhost:8080/api)
+// Default message when access the API folder through the browser
 router.get('/', function(req, res) {
-	res.json({ message: 'hooray! welcome to our api!' });
+    // Give some Hello there message
+	res.json({ message: 'Hello SPA, the API is working!' });
 });
 
-// on routes that end in /speakers
-// ----------------------------------------------------
+// When accessing the speakers Routes
 router.route('/speakers')
 
-	// create a speaker (accessed at POST http://localhost:8080/speakers)
+	// create a speaker when the method passed is POST
 	.post(function(req, res) {
 
-		var speaker = new Speaker();		// create a new instance of the Speaker model
-		speaker.name = req.body.name;  // set the speakers name (comes from the request)
+        // create a new instance of the Speaker model
+		var speaker = new Speaker();
+
+        // set the speakers properties (comes from the request)
+		speaker.name = req.body.name;
         speaker.company = req.body.company;
         speaker.title = req.body.title;
         speaker.description = req.body.description;
         speaker.picture = req.body.picture;
         speaker.schedule = req.body.schedule;
 
-
+        // save the data received
 		speaker.save(function(err) {
 			if (err)
 				res.send(err);
 
-			res.json({ message: 'Speaker created!' });
+            // give some success message
+			res.json({ message: 'speaker successfully created!' });
 		});
-
-
 	})
 
-	// get all the speakers (accessed at GET http://localhost:8080/api/speakers)
+	// get all the speakers when a method passed is GET
 	.get(function(req, res) {
 		Speaker.find(function(err, speakers) {
 			if (err)
@@ -70,11 +73,10 @@ router.route('/speakers')
 		});
 	});
 
-// on routes that end in /speakers/:speaker_id
-// ----------------------------------------------------
+// on accessing speaker Route by id
 router.route('/speakers/:speaker_id')
 
-	// get the speaker with that id
+	// get the speaker by id
 	.get(function(req, res) {
 		Speaker.findById(req.params.speaker_id, function(err, speaker) {
 			if (err)
@@ -83,25 +85,34 @@ router.route('/speakers/:speaker_id')
 		});
 	})
 
-	// update the speaker with this id
+	// update the speaker by id
 	.put(function(req, res) {
 		Speaker.findById(req.params.speaker_id, function(err, speaker) {
 
 			if (err)
 				res.send(err);
 
-			speaker.name = req.body.name;
+            // set the speakers properties (comes from the request)
+            speaker.name = req.body.name;
+            speaker.company = req.body.company;
+            speaker.title = req.body.title;
+            speaker.description = req.body.description;
+            speaker.picture = req.body.picture;
+            speaker.schedule = req.body.schedule;
+
+            // save the data received
 			speaker.save(function(err) {
 				if (err)
 					res.send(err);
 
-				res.json({ message: 'Speaker updated!' });
+                // give some success message
+				res.json({ message: 'speaker successfully updated!' });
 			});
 
 		});
 	})
 
-	// delete the speaker with this id
+	// delete the speaker by id
 	.delete(function(req, res) {
 		Speaker.remove({
 			_id: req.params.speaker_id
@@ -109,15 +120,15 @@ router.route('/speakers/:speaker_id')
 			if (err)
 				res.send(err);
 
-			res.json({ message: 'Successfully deleted' });
+            // give some success message
+			res.json({ message: 'speaker successfully deleted!' });
 		});
 	});
 
 
-// REGISTER OUR ROUTES -------------------------------
+// register the route
 app.use('/api', router);
 
-// START THE SERVER
-// =============================================================================
+// start the server
 app.listen(port);
 console.log('Magic happens on port ' + port);
