@@ -26,6 +26,7 @@
   "author": "your name here",
   "license": "MIT",
   "devDependencies": {
-    "grunt": "^0.4.5"
+    "grunt": "^0.4.5",
+    "hjs": "0.0.6"
   }
 }

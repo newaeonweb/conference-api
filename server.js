@@ -1,10 +1,16 @@
 // Import the Modules
 var express    = require('express');
 var bodyParser = require('body-parser');
+var path       = require('path');
 var app        = express();
+
+// view engine setup changed to Hogan instead Jade
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hjs');
 
 // configure app
 app.use(bodyParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
 var port     = process.env.PORT || 8080; // where the application will run
 
@@ -33,8 +39,42 @@ router.use(function(req, res, next) {
 // Default message when access the API folder through the browser
 router.get('/', function(req, res) {
     // Give some Hello there message
-	res.json({ message: 'Hello SPA, the API is working!' });
+	//res.json({ message: 'Hello SPA, the API is working!' });
+    res.render('index', { message: 'Hello SPA, the API is working!' });
 });
+
+/// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
+});
+
+/// error handlers
+
+// development error handler
+// will print stacktrace
+if (app.get('env') === 'development') {
+    app.use(function(err, req, res, next) {
+        res.status(err.status || 500);
+        res.render('error', {
+            message: err.message,
+            error: err
+        });
+    });
+}
+
+// production error handler
+// no stacktraces leaked to user
+app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+        message: err.message,
+        error: {}
+    });
+});
+
+
 
 // When accessing the speakers Routes
 router.route('/speakers')
@@ -127,7 +167,7 @@ router.route('/speakers/:speaker_id')
 
 
 // register the route
-app.use('/api', router);
+app.use('/', router);
 
 // start the server
 app.listen(port);
