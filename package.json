@@ -1,28 +1,21 @@
 {
-	"name": "conference-api",
-    "version": "0.0.1",
-    "description": "sample conference we application",
-    "main": "server.js",
-    "scripts": {
-        "test": "test"
-    },
-    "keywords": [
-        "SPA",
-        "MEAN",
-        "API"
-    ],
-	"dependencies": {
-		"express": "~4.0.0",
-		"morgan": "~1.0.0",
-		"mongoose": "~3.6.13",
-		"body-parser": "~1.0.1",
-        "method-override": "~1.0.0",
-        "nodemon": "1.2.0"
-	},
-    "engines": {
-        "node": "0.8.4",
-        "npm": "1.1.49"
-    },
-    "author": "your name here",
-    "license": "MIT"
+  "name": "express-generator",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "express": "~4.2.0",
+    "static-favicon": "~1.0.0",
+    "morgan": "~1.0.0",
+    "cookie-parser": "~1.0.1",
+    "body-parser": "~1.0.0",
+    "debug": "~0.7.4",
+    "hjs": "~0.0.6"
+  },
+  "devDependencies": {
+    "mongoose": "^3.8.12",
+    "nodemon": "^1.2.0"
+  }
 }
