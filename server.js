@@ -7,14 +7,14 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose   = require('mongoose');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
-var speakers = require('./routes/speakers');
+var routes = require('./server/routes/index');
+var users = require('./server/routes/users');
+var speakers = require('./server/routes/speakers');
 
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'server/views'));
 app.set('view engine', 'hjs');
 
 // configure app

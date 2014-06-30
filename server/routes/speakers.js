@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var Speaker     = require('../server/models/speaker');
+var Speaker     = require('../models/speaker');
 
 /* GET all users. */
 router.get('/', function(req, res) {
