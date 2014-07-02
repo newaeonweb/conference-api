@@ -1,5 +1,5 @@
-// Import the Modules
-var express = require('express');
+// Import the Modules / assign modules to variables
+var express  = require('express');
 var path = require('path');
 var favicon = require('static-favicon');
 var logger = require('morgan');
@@ -7,15 +7,32 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose   = require('mongoose');
 
+// Modules to store session
+var session    = require('express-session');
+var MongoStore = require('connect-mongo')(session);
+
+// Start the web express application
+var app      = express();
+
+// Import Passport, session e Warning flash modules
+var passport = require('passport');
+var flash    = require('connect-flash');
+
+// Setup Routes
 var routes = require('./server/routes/index');
-var users = require('./server/routes/users');
 var speakers = require('./server/routes/speakers');
 
-var app = express();
+// Database configuration
+var config = require('./server/config/config.js');
+// connect to our database
+mongoose.connect(config.url);
+
+// Passport configuration
+require('./server/config/passport')(passport);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'server/views'));
-app.set('view engine', 'hjs');
+app.set('view engine', 'ejs');
 
 // configure app
 app.use(favicon());
@@ -25,13 +42,28 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/users', users);
-app.use('/api/speakers', speakers);
+// required for passport
+// secret for session
+app.use(session({
+    secret: 'sometextgohere',
+    saveUninitialized: true,
+    resave: true,
+    //store session on MongoDB using express-session + connect mongo
+    store: new MongoStore({
+        url: config.url,
+        collection : 'sessions'
+    })
+}));
+// Init passport authentication
+app.use(passport.initialize());
+// persistent login sessions
+app.use(passport.session());
+// flash messages
+app.use(flash());
 
-// connect to our database
-// mongoose.connect('mongodb://127.0.0.1:port/node-api');
-mongoose.connect('mongodb://feiochc:hate666!@kahana.mongohq.com:10073/node-api');
+// load routes
+app.use('/', routes);
+app.use('/api/speakers', speakers);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -70,5 +102,5 @@ module.exports = app;
 app.set('port', process.env.PORT || 3000);
 
 var server = app.listen(app.get('port'), function() {
-  console.log('Express server listening on port ' + server.address().port);
+    console.log('Express server listening on port ' + server.address().port);
 });
