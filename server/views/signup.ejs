@@ -1,16 +1,50 @@
 <!doctype html>
 <html>
 <head>
-	<title>Node Authentication</title>
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-	<style>
-		body 		{ padding-top:80px; }
-	</style>
+    <title>Conference API</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+    <!--<![endif]-->
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="/stylesheets/marketing-old-ie.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="/stylesheets/marketing.css">
+    <!--<![endif]-->
+    <style>
+        .container {
+            width: 60%;
+            margin: 0 auto;
+            padding-top: 80px;
+        }
+        .alert {
+            color: #fff;
+            padding: 10px;
+            background-color: #ff0000;
+        }
+    </style>
 </head>
 <body>
+<div class="header">
+    <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+        <a class="pure-menu-heading" href="">Conference API</a>
+
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/login" class="btn btn-default"><span class="fa fa-user"></span> Login</a></li>
+            <li class="pure-menu-selected"><a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Signup</a></li>
+            <li><a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a></li>
+            <li><a href="/auth/twitter" class="btn btn-info"><span class="fa fa-twitter"></span> Twitter</a></li>
+            <li><a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google+</a></li>
+        </ul>
+    </div>
+</div>
 <div class="container">
-<div class="col-sm-6 col-sm-offset-3">
 
 	<h1><span class="fa fa-sign-in"></span> Signup</h1>
 
@@ -18,31 +52,17 @@
 		<div class="alert alert-danger"><%= message %></div>
 	<% } %>
 
-	<!-- LOGIN FORM -->
-	<form action="/signup" method="post">
-		<div class="form-group">
-			<label>Email</label>
-			<input type="text" class="form-control" name="email">
-		</div>
-		<div class="form-group">
-			<label>Password</label>
-			<input type="password" class="form-control" name="password">
-		</div>
+    <form action="/signup" method="post" class="pure-form">
+        <fieldset>
+            <input id="email" class="pure-input-1" type="email" placeholder="Email Address" name="email">
+            <input id="password" class="pure-input-1" type="password" placeholder="Password" name="password">
 
-		<button type="submit" class="btn btn-warning btn-lg">Signup</button>
-	</form>
+            <button type="submit" class="pure-button pure-button-primary">Submit</button>
 
-	<hr>
+            <p>Have an account? <a href="/login">Login</a> or go back to <a href="/">home</a>.</p>
+        </fieldset>
+    </form>
 
-	<p>Already have an account? <a href="/login">Login</a></p>
-	<p>Or go <a href="/">home</a>.</p>
-
-	<div class="text-center">
-		<p>A demo by <a href="http://scotch.io">Scotch</a>.</p>
-		<p>Visit the <a href="http://scotch.io/tutorials/javascript/easy-node-authentication-setup-and-local">tutorial</a>.</p>
-	</div>
-
-</div>
 </div>
 </body>
 </html>
