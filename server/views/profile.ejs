@@ -1,22 +1,47 @@
 <!doctype html>
 <html>
 <head>
-	<title>Node Authentication</title>
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-	<style>
-		body 		{ padding-top:80px; word-wrap:break-word; }
-	</style>
+    <title>Conference API</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+    <!--<![endif]-->
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="/stylesheets/marketing-old-ie.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="/stylesheets/marketing.css">
+    <!--<![endif]-->
+    <style>
+        .container {
+            width: 60%;
+            margin: 0 auto;
+            padding-top: 80px;
+        }
+        .alert {
+            color: #fff;
+            padding: 10px;
+            background-color: #ff0000;
+        }
+    </style>
 </head>
 <body>
+<div class="header">
+    <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+        <a class="pure-menu-heading" href="">Conference API</a>
+
+        <ul>
+            <li>Welcome, <%= user.local.email %></li>
+            <li><a href="/logout" class="btn btn-default"><span class="fa fa-power-off"></span> Logout</a></li>
+        </ul>
+    </div>
+</div>
 <div class="container">
 
-	<div class="page-header text-center">
-		<h1><span class="fa fa-anchor"></span> Profile Page</h1>
-		<a href="/logout" class="btn btn-default btn-sm">Logout</a>
-	</div>
-
-	<div class="row">
 
 		<!-- LOCAL INFORMATION -->
 		<div class="col-sm-6">
@@ -59,7 +84,7 @@
 
 			</div>
 		</div>
-	</div>
+
 	<div class="row">
 
 		<!-- TWITTER INFORMATION -->
