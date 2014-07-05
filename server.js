@@ -14,7 +14,7 @@ var MongoStore = require('connect-mongo')(session);
 // Start the web express application
 var app      = express();
 
-// Import Passport, session e Warning flash modules
+// Import Passport and Warning flash modules
 var passport = require('passport');
 var flash    = require('connect-flash');
 

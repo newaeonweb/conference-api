@@ -1,4 +1,4 @@
-// load all the things we need
+// load passport module
 var LocalStrategy    = require('passport-local').Strategy;
 
 // load up the user model

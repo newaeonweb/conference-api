@@ -2,14 +2,6 @@ var express = require('express');
 var router = express.Router();
 
 var passport = require('passport');
-var flash    = require('connect-flash');
-
-// initialize passport middleware
-router.use(passport.initialize());
-// persistent sessions
-router.use(passport.session());
-// use connect-flash for flash messages stored in session
-router.use(flash());
 
 // Home
 router.get('/', function(req, res) {
