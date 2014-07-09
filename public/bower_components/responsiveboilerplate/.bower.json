@@ -1,0 +1,15 @@
+{
+  "name": "responsiveboilerplate",
+  "homepage": "https://github.com/newaeonweb/responsiveboilerplate",
+  "version": "2.3.2",
+  "_release": "2.3.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v2.3.2",
+    "commit": "034d4760654755dc4e6f4eac92e240c0910c9826"
+  },
+  "_source": "git://github.com/newaeonweb/responsiveboilerplate.git",
+  "_target": "2.3.2",
+  "_originalSource": "responsiveboilerplate",
+  "_direct": true
+}

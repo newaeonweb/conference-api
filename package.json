@@ -17,7 +17,6 @@
     "method-override": "~1.0.0",
     "mongoose": "~3.8.1",
 
-    // Passpost + Session + Flash Messages + Crypto
     "connect-flash": "~0.1.1",
     "connect-mongo": "^0.4.1",
     "express-session": "^1.0.4",
@@ -26,7 +25,7 @@
     "passport-facebook": "~1.0.2",
     "passport-google-oauth": "~0.1.5",
     "passport-local": "~0.1.6",
-    "passport-twitter": "~1.0.2",
+    "passport-twitter": "~1.0.2"
 
   },
   "devDependencies": {

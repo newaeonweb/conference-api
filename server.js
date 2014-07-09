@@ -1,11 +1,11 @@
 // Import the Modules / assign modules to variables
-var express  = require('express');
+var express = require('express');
 var path = require('path');
 var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var mongoose   = require('mongoose');
+var mongoose = require('mongoose');
 
 // Modules to store session
 var session    = require('express-session');
@@ -34,7 +34,6 @@ require('./server/config/passport')(passport);
 app.set('views', path.join(__dirname, 'server/views'));
 app.set('view engine', 'ejs');
 
-// configure app
 app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -54,6 +53,7 @@ app.use(session({
         collection : 'sessions'
     })
 }));
+
 // Init passport authentication
 app.use(passport.initialize());
 // persistent login sessions
@@ -96,9 +96,9 @@ app.use(function(err, req, res, next) {
     });
 });
 
+
 module.exports = app;
 
-// set the server port
 app.set('port', process.env.PORT || 3000);
 
 var server = app.listen(app.get('port'), function() {

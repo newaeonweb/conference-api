@@ -2,6 +2,7 @@
   "name": "conference-api",
   "version": "0.0.1",
   "dependencies": {
-    "purecss": "~0.5.0"
+    "purecss": "~0.5.0",
+    "responsiveboilerplate": "2.3.2"
   }
 }
