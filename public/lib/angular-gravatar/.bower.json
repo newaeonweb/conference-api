@@ -1,0 +1,45 @@
+{
+  "name": "angular-gravatar",
+  "version": "0.2.1",
+  "author": {
+    "name": "Sebastian Wallin"
+  },
+  "description": "Angular.JS directive for gravatar images",
+  "keywords": [
+    "angular",
+    "angularjs",
+    "gravatar"
+  ],
+  "license": "MIT",
+  "main": [
+    "./build/md5.js",
+    "./build/angular-gravatar.js"
+  ],
+  "homepage": "http://github.com/wallin/angular-gravatar",
+  "ignore": [
+    "package.json",
+    "Gruntfile.js",
+    "karma.conf.js",
+    "spec",
+    "src"
+  ],
+  "dependencies": {
+    "angular": "~1.2.x"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.2.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/wallin/angular-gravatar.git"
+  },
+  "_release": "0.2.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.2.1",
+    "commit": "6a655c6fcbd43cc5a3205c8a799dc194a3e545b7"
+  },
+  "_source": "git://github.com/wallin/angular-gravatar.git",
+  "_target": "~0.2.1",
+  "_originalSource": "angular-gravatar"
+}

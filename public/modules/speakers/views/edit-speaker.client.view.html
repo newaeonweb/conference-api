@@ -1,0 +1,48 @@
+<section data-ng-controller="SpeakersController" data-ng-init="findOne()">
+    <div class="page-header">
+        <h1>Edit Speaker</h1>
+    </div>
+    <div class="col-md-12">
+        <img gravatar-src-once="speaker.email">
+        <form class="form-horizontal" data-ng-submit="update()" novalidate>
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label" for="name">Name</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="speaker.name" id="name" class="form-control" placeholder="Name" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="name">Title</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="speaker.title" id="title" class="form-control" placeholder="Titulo" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="description">Description</label>
+                    <div class="controls">
+                        <textarea data-ng-model="speaker.description" id="description" class="form-control" placeholder="Description" required></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="email">Email</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="speaker.email" id="email" class="form-control" placeholder="Email" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="schedule">Schedule</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="speaker.schedule" id="schedule" class="form-control" placeholder="Schedule" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Update" class="btn btn-default">
+                </div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+            </fieldset>
+        </form>
+    </div>
+</section>
