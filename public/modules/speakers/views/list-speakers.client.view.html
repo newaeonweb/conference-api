@@ -3,7 +3,7 @@
         <h1>Speakers</h1>
     </div>
     <div class="list-group">
-        <a data-ng-repeat="speaker in speakers" data-ng-href="#!/speakers/{{speaker._id}}" class="list-group-item">
+        <a data-ng-repeat="speaker in speakers" data-ng-href="#!/speakers/{{speaker._id}}/edit" class="list-group-item">
             <img gravatar-src-once="speaker.email" class="list-group-item" style="float:left; margin-right: 10px;">
 			<h4 class="list-group-item-heading"> <span data-ng-bind="speaker.name"></span></h4>
             <h5 class="list-group-item-heading"> Track : <span data-ng-bind="speaker.title"></span></h5>

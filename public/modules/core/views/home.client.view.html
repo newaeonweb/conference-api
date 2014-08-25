@@ -1,4 +1,4 @@
-<section data-ng-controller="HomeController">
+<section data-ng-controller="HomeController" data-ng-init="find()">
 	<div class="jumbotron text-center">
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
@@ -13,60 +13,28 @@
 		</div>
 		<div class="row">
 			<p>
-				<a class="btn btn-primary btn-lg" href="http://meanjs.org" target="_blank">Call for Papers</a>
+				<a class="btn btn-primary btn-lg" href="#!/signup">Call for Papers</a>
 			</p>
 		</div>
 	</div>
-	<div>
-		<h2>Congrats! You've configured and run the sample application.</h2>
-		<p>MEAN.JS is a web application boilerplate, which means you should start changing everything :-)</p>
-		<p>This sample application tracks users and articles.</p>
-		<ul>
-			<li>
-				Click
-				<em>Signup</em>
-				to get started.
-			</li>
-			<li>
-				Configure your app to work with your social accounts, by editing the
-				<em>/config/env/*.js</em>
-				files.
-			</li>
-			<li>
-				Edit your users module.
-			</li>
-			<li>
-				Add new CRUD modules.
-			</li>
-			<li>
-				Have fun...
-			</li>
-		</ul>
-	</div>
-	<div class="row">
-		<div class="col-md-3">
-			<h2>
-				<strong>M</strong>ongoDB
-			</h2>
-			<p><a target="_blank" href="http://mongodb.org/">MongoDB</a> is a database. MongoDB's <a target="_blank" href="http://docs.mongodb.org/manual/">great manual</a>, to get started with NoSQL and MongoDB.</p>
-		</div>
-		<div class="col-md-3">
-			<h2>
-				<strong>E</strong>xpress
-			</h2>
-			<p><a target="_blank" href="http://expressjs.com/"> Express</a> is an app server. Check out <a target="_blank" href="http://expressjs.com/guide.html">The Express Guide</a> or <a target="_blank" href="http://stackoverflow.com/questions/8144214/learning-express-for-node-js">StackOverflow</a> for more info.</p>
-		</div>
-		<div class="col-md-3">
-			<h2>
-				<strong>A</strong>ngularJS
-			</h2>
-			<p>AngularJS is web app framework. <a target="_blank" href="http://angularjs.org/">Angular's webiste</a> offers alot. The <a target="_blank" href="http://www.thinkster.io/">Thinkster Popular Guide</a> and <a target="_blank" href="https://egghead.io/">Egghead Videos</a> are great resources.</p>
-		</div>
-		<div class="col-md-3">
-			<h2>
-				<strong>N</strong>ode.js
-			</h2>
-			<p><a target="_blank" href="http://nodejs.org/">Node.js</a> is a web server. Node's website and this <a target="_blank" href="http://stackoverflow.com/questions/2353818/how-do-i-get-started-with-node-js">stackOverflow thread</a>, are great resources.</p>
-		</div>
-	</div>
+    <section>
+        <div class="page-header">
+            <h1>Speakers</h1>
+        </div>
+        <div class="list-group">
+            <a data-ng-repeat="speaker in speakers | filter:query | orderBy: 'created'" data-ng-href="#!/speakers/{{speaker._id}}" class="list-group-item">
+                <img gravatar-src-once="speaker.email" class="list-group-item" style="float:left; margin-right: 10px;">
+                <h4 class="list-group-item-heading"> <span data-ng-bind="speaker.name"></span></h4>
+                <h5 class="list-group-item-heading text-primary"> Track : <span data-ng-bind="speaker.title"></span></h5>
+                <p> Description: <span data-ng-bind="speaker.description"></span></p>
+                <p class="list-group-item"> Time: <span data-ng-bind="speaker.schedule"></span></p>
+            </a>
+        </div>
+        <div class="alert alert-warning text-center" data-ng-hide="!speakers.$resolved || speakers.length">
+            No Speakers yet, why don't you <a href="/#!/speakers/create">create one</a>?
+        </div>
+    </section>
 </section>
+<footer>
+    <p class="text-center">Conference &copy; 2014</p>
+</footer>
