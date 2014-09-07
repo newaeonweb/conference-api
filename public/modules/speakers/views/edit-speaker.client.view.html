@@ -3,7 +3,9 @@
         <h1>Edit Speaker</h1>
     </div>
     <div class="col-md-12">
-        <img gravatar-src-once="speaker.email">
+        <div class="thumbnail">
+            <img gravatar-src-once="speaker.email" alt="{{speaker.name}}">
+        </div>
         <form class="form-horizontal" data-ng-submit="update()" novalidate>
             <fieldset>
                 <div class="form-group">

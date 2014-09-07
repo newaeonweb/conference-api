@@ -22,6 +22,7 @@
             <h1>Speakers</h1>
         </div>
         <div class="list-group">
+            <!-- Add filter to list speakers by date -->
             <a data-ng-repeat="speaker in speakers | filter:query | orderBy: 'created'" data-ng-href="#!/speakers/{{speaker._id}}" class="list-group-item">
                 <img gravatar-src-once="speaker.email" class="list-group-item" style="float:left; margin-right: 10px;">
                 <h4 class="list-group-item-heading"> <span data-ng-bind="speaker.name"></span></h4>
@@ -30,6 +31,7 @@
                 <p class="list-group-item"> Time: <span data-ng-bind="speaker.schedule"></span></p>
             </a>
         </div>
+        <!-- Add a simple message if don`t have any speaker yet -->
         <div class="alert alert-warning text-center" data-ng-hide="!speakers.$resolved || speakers.length">
             No Speakers yet, why don't you <a href="/#!/speakers/create">create one</a>?
         </div>

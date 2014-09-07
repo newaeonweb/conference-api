@@ -12,7 +12,9 @@ var mongoose = require('mongoose'),
 var SpeakerSchema = new Schema({
 	name: {
 		type: String,
-		default: ''
+		default: '',
+        trim: true,
+        required: 'Name cannot be blank'
 	},
 	title: {
 		type: String,

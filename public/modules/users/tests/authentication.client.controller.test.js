@@ -54,7 +54,8 @@
 			$httpBackend.flush();
 			// test scope value
 			expect(scope.authentication.user).toEqual('Fred');
-			expect($location.url()).toEqual('/');
+            //changed to fit the new redirection after login
+			expect($location.url()).toEqual('/speakers');
 		});
 
 		it('$scope.signin() should fail to log in with nothing', function() {

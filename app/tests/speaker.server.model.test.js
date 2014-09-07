@@ -30,6 +30,10 @@ describe('Speaker Model Unit Tests:', function() {
 		user.save(function() { 
 			speaker = new Speaker({
 				name: 'Speaker Name',
+                title: 'Track Title',
+                decription: 'description of the speaker track',
+                email: 'testemail@test.com.br',
+                schedule: '9:10',
 				user: user
 			});
 
