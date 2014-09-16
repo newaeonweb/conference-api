@@ -53,7 +53,11 @@
 		it('$scope.find() should create an array with at least one Speaker object fetched from XHR', inject(function(Speakers) {
 			// Create sample Speaker using the Speakers service
 			var sampleSpeaker = new Speakers({
-				name: 'New Speaker'
+				name: 'New Speaker',
+                title: '',
+                description: '',
+                email: '',
+                schedule: ''
 			});
 
 			// Create a sample Speakers array that includes the new Speaker
@@ -73,7 +77,11 @@
 		it('$scope.findOne() should create an array with one Speaker object fetched from XHR using a speakerId URL parameter', inject(function(Speakers) {
 			// Define a sample Speaker object
 			var sampleSpeaker = new Speakers({
-				name: 'New Speaker'
+				name: 'New Speaker',
+                title: '',
+                description: '',
+                email: '',
+                schedule: ''
 			});
 
 			// Set the URL parameter
@@ -93,17 +101,29 @@
 		it('$scope.create() with valid form data should send a POST request with the form input values and then locate to new object URL', inject(function(Speakers) {
 			// Create a sample Speaker object
 			var sampleSpeakerPostData = new Speakers({
-				name: 'New Speaker'
+                name: 'New Speaker',
+                title: 'Title Test',
+                description: 'Description Test',
+                email: 'email@test.com',
+                schedule: '11:00'
 			});
 
 			// Create a sample Speaker response
 			var sampleSpeakerResponse = new Speakers({
 				_id: '525cf20451979dea2c000001',
-				name: 'New Speaker'
+				name: 'New Speaker',
+                title: 'Title Test',
+                description: 'Description Test',
+                email: 'email@test.com',
+                schedule: '11:00'
 			});
 
 			// Fixture mock form input values
 			scope.name = 'New Speaker';
+            scope.title = 'Title Test';
+            scope.description = 'Description Test';
+            scope.email = 'email@test.com';
+            scope.schedule = '11:00'
 
 			// Set POST response
 			$httpBackend.expectPOST('speakers', sampleSpeakerPostData).respond(sampleSpeakerResponse);
@@ -123,7 +143,11 @@
 			// Define a sample Speaker put data
 			var sampleSpeakerPutData = new Speakers({
 				_id: '525cf20451979dea2c000001',
-				name: 'New Speaker'
+				name: 'New Speaker',
+                title: 'Update the Text',
+                description: 'Update the Description',
+                email: 'update@test.com',
+                schedule: '10:00'
 			});
 
 			// Mock Speaker in scope
