@@ -6,4 +6,4 @@ env:
 services:
   - mongodb
 after_success:
-  - git push https://github.com/newaeonweb/conference-api master
+  - git push git@heroku.com:conference-api.git master
