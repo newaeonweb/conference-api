@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+  - "0.10"
+env:
+  - NODE_ENV=travis
+services:
+  - mongodb
+after_success:
+  - git push https://github.com/newaeonweb/conference-api master
