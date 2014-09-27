@@ -18,12 +18,12 @@ exports.config = {
 
     // A base URL for your application under test. Calls to protractor.get()
     // with relative paths will be prepended with this.
-    baseUrl: 'http://localhost:' + (process.env.PORT || '3000'),
+    //baseUrl: 'http://localhost:' + (process.env.PORT || '3000'),
 
 
     // If true, only chromedriver will be started, not a standalone selenium.
     // Tests for browsers other than chrome will not run.
-    chromeOnly: false,
+    chromeOnly: true,
 
     //chromeDriver: 'node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/chromedriver',
 
