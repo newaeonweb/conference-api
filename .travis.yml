@@ -9,5 +9,7 @@ env:
   global:
     - secure: W1iLLRgiG7bUBPbvRPfakOIpekBNlyIeZEY7trPIacW1L06t4JDxYUp0MizNWZLA+aWvHoQCkP487UIAfnjzuNtPwyYYFJFqMbEqzhtMjeSwQN3KSAb+N2xqIbDbXubEyOqH/WOBOLHe9/JfNyN4A9BouBjMvHQmBYxa9iDsT50=
     - secure: SZYqwRH/jWp3xx7Gz7Q4xRbw8eZ6+s7eKdHQrxjBprrDa6cAnLOoQ9+tqSXKzFr4az246YwRXThLdu13poPbk3J6Tyjo+njKIACHi88JYqywo7ntsLNYq57kKH3Evs6ZK32ekq03iaNgzZjwtcb7eYLcOrNhggxpkJChidEGrmU=
+install:
+  - pip install selenium nose --use-mirrors
 addons:
   sauce_connect: true

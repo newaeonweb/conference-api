@@ -12,7 +12,7 @@ exports.config = {
      * Use `seleniumAddress` for faster startup; run `./node_modules/.bin/webdriver-manager start` to launch the Selenium server.
      * Use `seleniumPort` to let Protractor manage its own Selenium server instance (using the server JAR in its default location).
      */
-    seleniumAddress: 'http://localhost:4444/wd/hub',
+    //seleniumAddress: 'http://localhost:4444/wd/hub',
     // seleniumPort: 4444,
 
 
@@ -23,7 +23,7 @@ exports.config = {
 
     // If true, only chromedriver will be started, not a standalone selenium.
     // Tests for browsers other than chrome will not run.
-    chromeOnly: false,
+    chromeOnly: true,
 
     //chromeDriver: 'node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/chromedriver',
 
