@@ -14,7 +14,7 @@ exports.config = {
      */
     //seleniumAddress: 'http://localhost:4444/wd/hub',
     // seleniumPort: 4444,
-
+    //seleniumServerJar: '/Users/fernandomonteiro/Documents/_github/conference-api/node_modules/grunt-protractor-runner/node_modules/protractor/selenium/selenium-server-standalone-2.43.1.jar',
 
     // A base URL for your application under test. Calls to protractor.get()
     // with relative paths will be prepended with this.
@@ -23,7 +23,7 @@ exports.config = {
 
     // If true, only chromedriver will be started, not a standalone selenium.
     // Tests for browsers other than chrome will not run.
-    chromeOnly: true,
+    chromeOnly: false,
 
     //chromeDriver: 'node_modules/grunt-protractor-runner/node_modules/protractor/node_modules/selenium-webdriver/chromedriver',
 

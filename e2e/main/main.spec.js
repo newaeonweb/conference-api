@@ -4,7 +4,7 @@ describe('Main View', function() {
     var page;
 
     beforeEach(function() {
-        browser.get('/');
+        browser.driver.get('/');
         page = require('./main.po');
     });
 

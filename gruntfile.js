@@ -150,7 +150,7 @@ module.exports = function(grunt) {
             safari: {
                 options: {
                     args: {
-                        browser: "safari"
+                        browser: 'safari'
                     }
                 }
             }
