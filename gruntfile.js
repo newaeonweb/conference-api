@@ -3,7 +3,7 @@
 module.exports = function(grunt) {
 	// Unified Watch Object
 	var watchFiles = {
-		serverViews: ['app/views/**/*.*'],
+		serverViews: ['app/views/**/*.*'], 
 		serverJS: ['gruntfile.js', 'server.js', 'config/**/*.js', 'app/**/*.js'],
 		clientViews: ['public/modules/**/views/*.html'],
 		clientJS: ['public/js/*.js', 'public/modules/**/*.js'],
@@ -150,14 +150,14 @@ module.exports = function(grunt) {
             safari: {
                 options: {
                     args: {
-                        browser: 'safari'
+                        browser: "safari"
                     }
                 }
             }
         }
 	});
 
-	// Load NPM tasks
+	// Load NPM tasks 
 	require('load-grunt-tasks')(grunt);
 
 	// Making grunt default to force in order not to break the project.

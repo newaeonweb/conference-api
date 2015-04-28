@@ -28,7 +28,7 @@ angular.module('speakers').controller('SpeakersController', ['$scope', '$statePa
 			this.title = '';
 			this.description = '';
 			this.schedule = '';
-			this.email = '';
+			this.email = ''
 		};
 
 		// Remove existing Speaker

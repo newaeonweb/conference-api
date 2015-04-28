@@ -123,7 +123,7 @@
             scope.title = 'Title Test';
             scope.description = 'Description Test';
             scope.email = 'email@test.com';
-            scope.schedule = '11:00';
+            scope.schedule = '11:00'
 
 			// Set POST response
 			$httpBackend.expectPOST('speakers', sampleSpeakerPostData).respond(sampleSpeakerResponse);
